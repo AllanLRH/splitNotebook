@@ -32,8 +32,9 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser("MergeNotebook")
     parser.add_argument('inputNotebook', help="Notebook with input data.")
     parser.add_argument('outputNotebook', help="Notebook with output data.")
-    parser.add_argument('-o', '--outputname', help="Filename of merged notebook.",
-                        type=str, default=None)
+    parser.add_argument('-o', '--outputname', help="Filename of merged notebook. Default " +
+                        "is first common substring + '.ipynb' unless it's empty, in which " +
+                        "case it will default to 'mergedNotebook.ipynb'", type=str, default=None)
     p = parser.parse_args()
 
     nbi = loadNotebook(p.inputNotebook)

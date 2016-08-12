@@ -33,5 +33,7 @@ positional arguments:
 optional arguments:
   -h, --help            show this help message and exit
   -o OUTPUTNAME, --outputname OUTPUTNAME
-                        Filename of merged notebook.
+                        Filename of merged notebook. Default is first common
+                        substring + '.ipynb' unless it's empty, in which case
+                        it will default to 'mergedNotebook.ipynb'
 ```
