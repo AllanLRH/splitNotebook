@@ -1,11 +1,11 @@
 #!/usr/bin/env python
 
-from IPython.nbformat import v4 as nbf
+import json
 from copy import deepcopy
 
 inputname = 'triaNotebook.ipynb'
 with open(inputname) as fid:
-    nbo = nbf.reads(fid.read())
+    nbo = json.load(fid)
 nbi = deepcopy(nbo)
 nbo = deepcopy(nbo)
 
@@ -19,8 +19,8 @@ for cl in nbo['cells']:
     if 'source' in cl.keys():
         cl['source'] = ''
 
-nbis = nbf.writes(nbi)
-nbos = nbf.writes(nbo)
+nbis = json.dumps(nbi)
+nbos = json.dumps(nbo)
 a, b = inputname.split('.')
 nbin = a + '_input.' + b
 nbon = a + '_output.' + b
