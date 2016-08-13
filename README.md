@@ -1,4 +1,5 @@
 Split Jupyter notebooks into an inputs-notebook and an outputs-notebook, which is useful when placing a notebook under version control.
+Code, markdown and raw-input cells er put int the input-notebook, output and cell execution numbers are put in the output-notebook.
 
 This is work in progress, and is missing al but the most basic error handling through the with statement.
 
