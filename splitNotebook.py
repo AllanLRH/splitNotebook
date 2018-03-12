@@ -58,7 +58,7 @@ if __name__ == '__main__':
         parser.add_argument('-i', '--nooutputnotebook', help="Don't make notebook containing output",
                             action='store_true', default=False)
         parser.add_argument('-o', '--outputnames',
-                            help="Name(s) of output notebooks, provide names for both"
+                            help="Name(s) of output notebooks, provide names for both "
                             "notebooks unless the --nooutputnotebook flag is given.",
                             type=str, nargs='+')
         p = parser.parse_args()
