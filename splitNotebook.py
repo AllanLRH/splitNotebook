@@ -48,7 +48,7 @@ def makeNewNames(filename):
 
 def writeNotebook(jsonbook, filename):
     with open(filename, 'w') as fid:
-        json.dump(jsonbook, fid)
+        json.dump(jsonbook, fid, indent=4)
 
 
 if __name__ == '__main__':
