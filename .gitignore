@@ -5,3 +5,5 @@ woolen_sweaters_urls.txt
 trialNotebook_combined.ipynb
 
 /merged.ipynb
+
+/__pycache__/
