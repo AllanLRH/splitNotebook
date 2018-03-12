@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import json
+from collections import OrderedDict
 from copy import deepcopy
 import argparse
 import sys
@@ -12,7 +13,7 @@ def loadNotebook(filename):
     Load notebook as json structure.
     """
     with open(filename) as fid:
-        nb = json.load(fid)
+        nb = json.JSONDecoder(object_pairs_hook=OrderedDict).decode(fid.read())
         return nb
 
 
