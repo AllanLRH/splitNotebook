@@ -1,0 +1,27 @@
+#!/usr/bin/env python
+
+
+from __future__ import print_function
+
+from pudb import set_trace
+import sys
+import subprocess
+import shutil
+splitNotebookPath = "/Users/allan/src/stripNotebook/splitNotebook.py"
+backupAppendString = "__BACKUP"
+
+# set_trace()
+
+# stagedFiles = subprocess.check_output("git diff --name-only --cached".split()).splitlines()
+stagedFiles = ["percolation2.ipynb"]
+
+for stg in stagedFiles:
+    if stg.lower().endswith(".ipynb"):
+        shutil.copy(stg, stg+backupAppendString)
+        p = subprocess.Popen(" ".join([splitNotebookPath, "--nooutputnotebook", stg, "--outputnames", stg]), shell=True)
+        if p.wait() != 0:
+            sys.exit(p.returncode)
+        c = subprocess.call(["git", "add", stg])
+        if c != 0:
+            sys.exit(c)
+        shutil.move(stg+backupAppendString, stg)
